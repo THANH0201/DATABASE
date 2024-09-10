@@ -3,4 +3,4 @@
 ## EXERCISE 2
 # Q1:
 select * from goal;
-![screeshot]
+![screenshot]
