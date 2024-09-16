@@ -1,5 +1,5 @@
 # NAME: THANH HONGTHINGUYEN
-# WEEK 3
+# WEEK 4
 ## SIMPLE QUERY
 ## EXERCISE 4 - JOIN
 # Q1:List all Finnish airports that provide scheduled services. The result must include both the name of the country as well as the name of the airport.
@@ -52,11 +52,19 @@ SELECT NAME FROM airport WHERE iso_country IN(SELECT iso_country FROM country WH
 
 # Q3:List the names of all players who have achieved the clouds goal.
 Answer:
-# Q4:List all countries that have no airports.
-
-Hint: You need to use the negation NOT IN.
+SELECT SCREEN_NAME FROM game WHERE id IN
+(select game.id from goal_reached 
+left JOIN game on game.id = goal_reached.game_id 
+right JOIN goal ON goal.id = goal_reached.goal_id WHERE goal.name LIKE "CLOUDS");
+![img_7.png](img_7.png)
+# Q4:List all countries that have no airports.Hint: You need to use the negation NOT IN.
 Answer:
-# Q5:Which weather goals has Heini not achieved yet?
-
-Hint: You need to use the negation NOT IN.
+SELECT NAME FROM country WHERE iso_country  NOT IN (SELECT iso_country FROM airport);
+![img_8.png](img_8.png)
+# Q5:Which weather goals has Heini not achieved yet? Hint: You need to use the negation NOT IN.
 Answer:
+SELECT goal.NAME FROM goal WHERE id NOT IN
+(select goal.id from goal_reached 
+left JOIN game on game.id = goal_reached.game_id 
+right JOIN goal ON goal.id = goal_reached.goal_id WHERE game.screen_name LIKE "HEINI");
+![img_9.png](img_9.png)

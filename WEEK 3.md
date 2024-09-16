@@ -1,3 +1,4 @@
+# NAME: THANH HONGTHINGUYEN
 # WEEK 3
 ## SIMPLE QUERY
 ## EXERCISE 2
@@ -42,7 +43,7 @@ select screen_name, co2_budget, co2_consumed, (co2_budget-co2_consumed) as co2_l
 from game where screen_name = "Ilkka";
 ![Screenshot (10).png](Screenshot%20%2810%29.png)
 
-#EXERCISE 3: JOIN
+## EXERCISE 3: JOIN
 # Q1:
 select country.name as "country name", airport.name as "airport name"
 from country, airport
